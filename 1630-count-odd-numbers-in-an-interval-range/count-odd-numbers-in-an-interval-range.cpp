@@ -1,10 +1,9 @@
 class Solution {
 public:
     int countOdds(int low, int high) {
-        int base = (high - low) / 2;
-        if (low % 2 != 0 || high % 2 != 0)
-            return base + 1;
-        return base;
+        if(low%2!=1)low++;
+        if(high%2!=1)high--;
+        return (high-low)/2 +1;
     }
 };
 // make the pair inclusive
