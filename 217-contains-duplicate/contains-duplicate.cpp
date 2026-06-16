@@ -1,15 +1,19 @@
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        if(nums.size() <=0){
-            return false;
-        }
-        sort(nums.begin(), nums.end());
-        for(int i =0; i< nums.size()-1; i++){
-            if(nums[i]==nums[i+1]){
+        unordered_map<int, int> mp;
+
+        for (int it : nums) {
+            if (mp[it] != 0) {
                 return true;
             }
+            mp[it]++;
         }
+
         return false;
     }
 };
